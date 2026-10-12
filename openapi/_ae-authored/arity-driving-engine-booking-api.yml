@@ -1,0 +1,478 @@
+openapi: 3.1.0
+info:
+  title: Arity Driving Engine and Booking API
+  version: unversioned
+  description: Arity Driving Engine (authentication, trip intelligence, registration,
+    groups, scoring, activation) and Booking API, as documented at apidocs.arity.com.
+  x-generated-from: postman-collection
+  x-source-url: https://apidocs.arity.com/
+  x-ae-authored: true
+  x-last-validated: '2026-10-13'
+  x-note: Converted by API Evangelist from Arity's published Postman Documenter collection
+    (2966050/TW76E5ZE). Arity does not publish an OpenAPI. Response schemas are not
+    documented in the source and are not invented here.
+tags:
+- name: Activation
+- name: Authentication
+- name: Booking API Documentation
+- name: Registration
+- name: Scoring
+- name: Trip Intelligence
+paths:
+  /platform/oauth/v1/token:
+    post:
+      operationId: GeneratetokenB2B
+      summary: generateToken (b2b)
+      tags:
+      - Authentication
+      description: Generate an access token that you can use for authorization on
+        subsequent API calls. The b2b scope identifies the organization, and is required
+        when calling the Arity platform from your back-end systems.
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+  /registration/v2/users/{userId}:
+    get:
+      operationId: validateMobileToken
+      summary: validateMobileToken
+      tags:
+      - Authentication
+      description: Use this endpoint to get a user's details from a userId. By passing
+        the user's mobile scope token for authentication, you can validate the token
+        with a success response form this endpoint. This is the same endpoint as getUserDetails
+        API, but you will typically call that with your b2b token from the back-end.
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivingBehavior/v3/trips:
+    get:
+      operationId: getTripSummary
+      summary: getTripSummary
+      tags:
+      - Trip Intelligence
+      description: Get a summary of all trips associated with an end-user during a
+        specified time period.
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+  /drivingBehavior/v3/trips/{tripId}:
+    get:
+      operationId: getTripDetails
+      summary: getTripDetails
+      tags:
+      - Trip Intelligence
+      description: Get the details of a single trip, including distance, duration,
+        events (speeding, hard braking, etc.), and GPS trail. Requires a valid tripId
+        at the end of the url. Use the getTripSummary endpoint to retreive tripsIds.
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivingBehavior/v3/trips/{tripId}/geopoints:
+    get:
+      operationId: GettripdetailsGpsTrail
+      summary: getTripDetails GPS trail
+      tags:
+      - Trip Intelligence
+      description: Get the details of a single trip, including distance, duration,
+        events (speeding, hard braking, etc.), and GPS trail. Requires a valid tripId
+        at the end of the url. Use the getTripSummary endpoint to retreive tripsIds.
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivingBehavior/v3/users/gps-data-user/trips/{tripId}:
+    post:
+      operationId: rejectTrip
+      summary: rejectTrip
+      tags:
+      - Trip Intelligence
+      description: Reject a trip captured for an end-user who was not driving (e.g.,
+        the user was a passenger) to remove it from that user's score.
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: tripId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              rejectReasonCode: '102'
+  /registration/v2/users/products:
+    post:
+      operationId: createUser
+      summary: createUser
+      tags:
+      - Registration
+      description: 'Create User Account
+
+        Create an Arity userId needed to track the driving behavior of your mobile
+        app end-user.
+
+        URL : https://api.arity.com/registration/v2/users/products
+
+        URL parameters : none
+
+        Method : POST
+
+        Auth required : YES - b2b Oauth token
+
+        Data constraints
+
+        Provide userId of account to be created. Alternatively leave this null and
+        we will return a unique string.
+
+        Provide a deviceId for this user.  Alternatively leave this null and we will
+        return a unique string.
+
+        Indicate that your user is enrolled in the Driving Behavior product'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              userId: ''
+              deviceId: ''
+              products:
+              - Driving Behavior
+  /drivinginsights/v1/orgs/{orgId}/groups/{groupId}/users:
+    post:
+      operationId: groupAddUser
+      summary: groupAddUser
+      tags:
+      - Registration
+      description: groupAddUser (as listed in the Arity Postman documentation).
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              userId: '{{userId}}'
+  /drivinginsights/v1/orgs/{orgId}/groups/{groupId}/users/{userId}:
+    delete:
+      operationId: groupRemoveUser
+      summary: groupRemoveUser
+      tags:
+      - Registration
+      description: groupRemoveUser (as listed in the Arity Postman documentation).
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivinginsights/v1/orgs/{orgId}/groups/{groupId}:
+    get:
+      operationId: groupGet
+      summary: groupGet
+      tags:
+      - Registration
+      description: groupGet (as listed in the Arity Postman documentation).
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivinginsights/v1/orgs/{orgId}/users/{userId}:
+    get:
+      operationId: getUserActivationStatus
+      summary: getUserActivationStatus
+      tags:
+      - Registration
+      description: getUserActivationStatus (as listed in the Arity Postman documentation).
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+  /reporting-insights/orgs/{orgId}/report:
+    get:
+      operationId: ActivationReportingByDateRange
+      summary: Activation Reporting by Date Range
+      tags:
+      - Registration
+      description: Activation Reporting by Date Range (as listed in the Arity Postman
+        documentation).
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivinginsights/v1/orgs/{orgId}/users/{userId}/group:
+    get:
+      operationId: getGroupForUser
+      summary: getGroupForUser
+      tags:
+      - Registration
+      description: getGroupForUser (as listed in the Arity Postman documentation).
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivinginsights/v1/orgs/{orgId}/groups:
+    post:
+      operationId: createGroup
+      summary: createGroup
+      tags:
+      - Registration
+      description: Create a group and assign one of Arity's scoring models so that
+        any user(s) in the group can be scored according to that model. It is possible
+        to have groups with only one user. In that case we suggest naming the groupId
+        the same as the userId.
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              modelName: '{{modelName}}'
+              userIds:
+              - '{{userId}}'
+              groupId: '{{groupId}}'
+  /drivinginsights/v1/orgs/{orgId}/users/{userId}/user-score:
+    get:
+      operationId: getScoreForUser
+      summary: getScoreForUser
+      tags:
+      - Scoring
+      description: Get an end-user's driving score. Their score is determined by the
+        scoring model that is assigned to that user's group.
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivinginsights/v1/orgs/{orgId}/users/{userId}/model:
+    get:
+      operationId: getModelForUser
+      summary: getModelForUser
+      tags:
+      - Scoring
+      description: getModelForUser (as listed in the Arity Postman documentation).
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+  /drivinginsights/v1/orgs/{orgId}/users/{userId}/activation:
+    post:
+      operationId: generateActivationCode
+      summary: generateActivationCode
+      tags:
+      - Activation
+      description: generateActivationCode (as listed in the Arity Postman documentation).
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: orgId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              mobileScopeToken: '{{user-mobile-token}}'
+              deviceId: '{{deviceId}}'
+  /bookings:
+    post:
+      operationId: CreateABooking
+      summary: Create a Booking
+      tags:
+      - Booking API Documentation
+      description: Creates a booking
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              expectedEndTimestamp: 1600120880
+              imei: xxxxxxxxxxxxxxx
+              sensorType: obdii
+              startTimestamp: 1599238881
+              userId: xxxxxxxxxxxxxxx
+              vin: xxxxxxxxxxxxxxx
+              bookingId: '1234512345'
+    get:
+      operationId: GetAllBookings
+      summary: Get all Bookings
+      tags:
+      - Booking API Documentation
+      description: 'By passing in the appropriate options, you can search for
+
+        existing bookings'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+  /bookings/{bookingId}:
+    patch:
+      operationId: EndABooking
+      summary: End a Booking
+      tags:
+      - Booking API Documentation
+      description: Passes actualEndTimestamp to end the booking
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: bookingId
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetBooking
+      summary: Get Booking
+      tags:
+      - Booking API Documentation
+      description: 'By passing in the appropriate options, you can search for
+
+        existing bookings'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: bookingId
+        in: path
+        required: true
+        schema:
+          type: string
+servers:
+- url: https://api.arity.com
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.arity.com/platform/oauth/v1/token
+          scopes: {}
+security:
+- oauth2: []

@@ -1,0 +1,167 @@
+openapi: 3.1.0
+info:
+  title: Arity PreQualCredit API
+  version: unversioned
+  description: Arity PreQualCredit API (users, enrollment, prequalification credit
+    scores), as documented at apidocs.arity.com. The source collection uses an unresolved
+    {{baseUrl}} variable, so no server is stated.
+  x-generated-from: postman-collection
+  x-source-url: https://apidocs.arity.com/
+  x-ae-authored: true
+  x-last-validated: '2026-10-13'
+  x-note: Converted by API Evangelist from Arity's published Postman Documenter collection
+    (2966050/TW76E5ZE). Arity does not publish an OpenAPI. Response schemas are not
+    documented in the source and are not invented here.
+tags:
+- name: PreQualCredit
+paths:
+  /users/{userId}/prequal-credit-scores:
+    post:
+      operationId: createPrequalCreditScore
+      summary: createPrequalCreditScore
+      tags:
+      - PreQualCredit
+      description: create Prequal Credit Score
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              permissiblePurpose: <string>
+  /users/{userId}/prequal-credit-scores/{scoreId}:
+    get:
+      operationId: getPrequalCreditScore
+      summary: getPrequalCreditScore
+      tags:
+      - PreQualCredit
+      description: get Prequal Credit Score
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: scoreId
+        in: path
+        required: true
+        schema:
+          type: string
+  /users/{userId}:
+    get:
+      operationId: getUser
+      summary: getUser
+      tags:
+      - PreQualCredit
+      description: 'Retrieve all of the user data we have on a userID including the
+        enrollmentStatus. Required fields: userID'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: updateUser
+      summary: updateUser
+      tags:
+      - PreQualCredit
+      description: 'Update a user’s data in PreQual. You cannot update a userID. Required
+        fields: userID'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              userId: d0679ee1-9043-4b6c-983c-a58c6bfcb7d2
+              firstName: John
+              lastName: Doe
+              dateOfBirth: '2017-10-31'
+              dateUserActivated: '2017-10-31'
+              homeZip: '60647'
+              drivingZip: '60647'
+              addresses:
+              - status: string
+                number: string
+                street: string
+                city: string
+                state: string
+                zipCode: string
+              taxId: '123456789'
+  /users/{userId}/enrollment:
+    put:
+      operationId: updateEnrollmentStatus
+      summary: updateEnrollmentStatus
+      tags:
+      - PreQualCredit
+      description: 'Update a user’s enrollment status within PreQual. A user’s status
+        can be changed at any time to any of the options. Status options are: accepted,
+        pending, rejected. Required fields: userID, enrollmentStatus'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+  /users:
+    post:
+      operationId: createUser
+      summary: createUser
+      tags:
+      - PreQualCredit
+      description: 'Create a new user in PreQual Coverage. When you create a user
+        they will receive a default enrollment status of pending. In PreQual, user
+        refers to the driver you are wanting to score. Required fields: userID (we
+        will assign one if you do not provide it) d'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              userId: d0679ee1-9043-4b6c-983c-a58c6bfcb7d2
+              firstName: John
+              lastName: Doe
+              dateOfBirth: '2017-10-31'
+              dateUserActivated: '2017-10-31'
+              homeZip: '60647'
+              drivingZip: '60647'
+              addresses:
+              - status: string
+                number: string
+                street: string
+                city: string
+                state: string
+                zipCode: string
+              taxId: '123456789'
