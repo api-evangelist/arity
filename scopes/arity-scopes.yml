@@ -1,0 +1,11 @@
+generated: '2026-10-13'
+method: none
+source: openapi/arity-driving-engine-booking-api.yml
+schemes:
+- name: oauth2
+  source: openapi/arity-driving-engine-booking-api.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.arity.com/platform/oauth/v1/token
+scopes: []
+note: The OAuth2 client-credentials scheme in the OpenAPI declares no scopes.

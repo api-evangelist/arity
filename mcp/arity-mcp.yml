@@ -1,0 +1,119 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/_ae-authored/arity-driving-engine-booking-api.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: No MCP server was found. The pre-flight posted tools/list to /mcp on api.arity.com, arity.com, apidocs.arity.com, prod.help.arity.com; verdict
+  absent. Candidate tools below are derived from the 21 operation(s) in the provider's own OpenAPI (21 listed); they describe what a server WOULD
+  expose, not one that exists.
+tools:
+- name: generatetoken_b2_b
+  operationId: GeneratetokenB2B
+  method: POST
+  path: /platform/oauth/v1/token
+  description: generateToken (b2b)
+- name: validate_mobile_token
+  operationId: validateMobileToken
+  method: GET
+  path: /registration/v2/users/{userId}
+  description: validateMobileToken
+- name: get_trip_summary
+  operationId: getTripSummary
+  method: GET
+  path: /drivingBehavior/v3/trips
+  description: getTripSummary
+- name: get_trip_details
+  operationId: getTripDetails
+  method: GET
+  path: /drivingBehavior/v3/trips/{tripId}
+  description: getTripDetails
+- name: gettripdetails_gps_trail
+  operationId: GettripdetailsGpsTrail
+  method: GET
+  path: /drivingBehavior/v3/trips/{tripId}/geopoints
+  description: getTripDetails GPS trail
+- name: reject_trip
+  operationId: rejectTrip
+  method: POST
+  path: /drivingBehavior/v3/users/gps-data-user/trips/{tripId}
+  description: rejectTrip
+- name: create_user
+  operationId: createUser
+  method: POST
+  path: /registration/v2/users/products
+  description: createUser
+- name: group_add_user
+  operationId: groupAddUser
+  method: POST
+  path: /drivinginsights/v1/orgs/{orgId}/groups/{groupId}/users
+  description: groupAddUser
+- name: group_remove_user
+  operationId: groupRemoveUser
+  method: DELETE
+  path: /drivinginsights/v1/orgs/{orgId}/groups/{groupId}/users/{userId}
+  description: groupRemoveUser
+- name: group_get
+  operationId: groupGet
+  method: GET
+  path: /drivinginsights/v1/orgs/{orgId}/groups/{groupId}
+  description: groupGet
+- name: get_user_activation_status
+  operationId: getUserActivationStatus
+  method: GET
+  path: /drivinginsights/v1/orgs/{orgId}/users/{userId}
+  description: getUserActivationStatus
+- name: activation_reporting_by_date_range
+  operationId: ActivationReportingByDateRange
+  method: GET
+  path: /reporting-insights/orgs/{orgId}/report
+  description: Activation Reporting by Date Range
+- name: get_group_for_user
+  operationId: getGroupForUser
+  method: GET
+  path: /drivinginsights/v1/orgs/{orgId}/users/{userId}/group
+  description: getGroupForUser
+- name: create_group
+  operationId: createGroup
+  method: POST
+  path: /drivinginsights/v1/orgs/{orgId}/groups
+  description: createGroup
+- name: get_score_for_user
+  operationId: getScoreForUser
+  method: GET
+  path: /drivinginsights/v1/orgs/{orgId}/users/{userId}/user-score
+  description: getScoreForUser
+- name: get_model_for_user
+  operationId: getModelForUser
+  method: GET
+  path: /drivinginsights/v1/orgs/{orgId}/users/{userId}/model
+  description: getModelForUser
+- name: generate_activation_code
+  operationId: generateActivationCode
+  method: POST
+  path: /drivinginsights/v1/orgs/{orgId}/users/{userId}/activation
+  description: generateActivationCode
+- name: create_abooking
+  operationId: CreateABooking
+  method: POST
+  path: /bookings
+  description: Create a Booking
+- name: get_all_bookings
+  operationId: GetAllBookings
+  method: GET
+  path: /bookings
+  description: Get all Bookings
+- name: end_abooking
+  operationId: EndABooking
+  method: PATCH
+  path: /bookings/{bookingId}
+  description: End a Booking
+- name: get_booking
+  operationId: GetBooking
+  method: GET
+  path: /bookings/{bookingId}
+  description: Get Booking

@@ -1,0 +1,19 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/_ae-authored/arity-driving-engine-booking-api.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 21
+  statuses_declared: 1
+problems:
+- status: default
+  title: null
+  description: Response shape not documented in the source collection.
+  operations: 21
+  media_types: []
+  schema: null
