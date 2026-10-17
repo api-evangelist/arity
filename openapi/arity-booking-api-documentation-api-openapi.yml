@@ -1,0 +1,92 @@
+openapi: 3.2.0
+info:
+  title: Arity Driving Engine and Booking Booking API Documentation…
+  version: unversioned
+  description: Arity Driving Engine (authentication, trip intelligence, registration, groups, scoring, activation) and Booking API, as documented at apidocs.arity.com.
+  x-generated-from: postman-collection
+  x-source-url: https://apidocs.arity.com/
+  x-ae-authored: true
+  x-last-validated: '2026-10-13'
+  x-note: Converted by API Evangelist from Arity's published Postman Documenter collection (2966050/TW76E5ZE). Arity does not publish an OpenAPI. Response schemas are not documented in the source and are not invented here.
+servers:
+- url: https://api.arity.com
+security:
+- oauth2: []
+tags:
+- name: Booking API Documentation
+paths:
+  /bookings:
+    post:
+      operationId: CreateABooking
+      summary: Create a Booking
+      tags:
+      - Booking API Documentation
+      description: Creates a booking
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              expectedEndTimestamp: 1600120880
+              imei: xxxxxxxxxxxxxxx
+              sensorType: obdii
+              startTimestamp: 1599238881
+              userId: xxxxxxxxxxxxxxx
+              vin: xxxxxxxxxxxxxxx
+              bookingId: '1234512345'
+    get:
+      operationId: GetAllBookings
+      summary: Get all Bookings
+      tags:
+      - Booking API Documentation
+      description: 'By passing in the appropriate options, you can search for
+
+        existing bookings'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+  /bookings/{bookingId}:
+    patch:
+      operationId: EndABooking
+      summary: End a Booking
+      tags:
+      - Booking API Documentation
+      description: Passes actualEndTimestamp to end the booking
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: bookingId
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetBooking
+      summary: Get Booking
+      tags:
+      - Booking API Documentation
+      description: 'By passing in the appropriate options, you can search for
+
+        existing bookings'
+      responses:
+        default:
+          description: Response shape not documented in the source collection.
+      parameters:
+      - name: bookingId
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.arity.com/platform/oauth/v1/token
+          scopes: {}

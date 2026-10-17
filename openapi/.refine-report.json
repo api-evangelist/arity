@@ -1,0 +1,26 @@
+{
+  "provider": "arity",
+  "sources": [
+    "_ae-authored/arity-driving-engine-booking-api.yml",
+    "_ae-authored/arity-prequalcredit-api.yml"
+  ],
+  "outputs": [
+    "arity-activation-api-openapi.yml",
+    "arity-authentication-api-openapi.yml",
+    "arity-booking-api-documentation-api-openapi.yml",
+    "arity-registration-api-openapi.yml",
+    "arity-scoring-api-openapi.yml",
+    "arity-trip-intelligence-api-openapi.yml",
+    "arity-prequalcredit-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "arity-driving-engine-booking-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "arity-prequalcredit-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+7 apis, 7 total)"
+  ],
+  "skipped": []
+}
