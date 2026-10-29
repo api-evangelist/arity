@@ -64,5 +64,115 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Arity is a company surfaced via the API Evangelist harvest backlog (source: market-layer-gap) and added to the network as a stub for full-pipeline profiling.
-- https://arity.com
+Arity is a mobility data and analytics company founded by Allstate. It collects and analyzes driving behavior data from mobile devices and connected vehicles to power telematics-based insurance pricing, crash detection, audience and marketing products, and road and traffic analytics. Developers integrate through the Arity Driving Engine (OAuth token, trip intelligence, user registration, groups, driving scores, activation), a Booking API and a PreQualCredit API, documented as a Postman collection at apidocs.arity.com, plus the Arity mobile SDK.
+
+**Areas:** Company · Telematics · Mobility Data · Insurance · Driving Behavior · Analytics · Location Data
+
+## Arity on APIs.io
+
+Everything profiled for Arity is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/arity/](https://apis.io/providers/arity/)** — or go straight to one of the APIs or properties below.
+
+### APIs (7)
+
+- [Arity Activation API](https://apis.io/apis/arity/arity-activation-api/) — The Activation API from Arity — 1 operation(s) for activation.
+- [Arity Authentication API](https://apis.io/apis/arity/arity-authentication-api/) — The Authentication API from Arity — 2 operation(s) for authentication.
+- [Arity Booking API Documentation API](https://apis.io/apis/arity/arity-booking-api-documentation-api/) — The Booking API Documentation API from Arity — 2 operation(s) for booking api documentation.
+- [Arity Pre Qual Credit API](https://apis.io/apis/arity/arity-prequalcredit-api/) — The PreQualCredit API from Arity — 5 operation(s) for prequalcredit.
+- [Arity Registration API](https://apis.io/apis/arity/arity-registration-api/) — The Registration API from Arity — 8 operation(s) for registration.
+- [Arity Scoring API](https://apis.io/apis/arity/arity-scoring-api/) — The Scoring API from Arity — 2 operation(s) for scoring.
+- [Arity Trip Intelligence API](https://apis.io/apis/arity/arity-trip-intelligence-api/) — The Trip Intelligence API from Arity — 4 operation(s) for trip intelligence.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [arity-mcp.yml](https://apis.io/servers/arity/arity-mcp-yml/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Arity API Rules](https://apis.io/rules/arity/arity-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Arity Domain Security](https://apis.io/security/arity/arity-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Arity Scopes](https://apis.io/scopes/arity/arity-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://arity.com)
+- [Documentation](https://apidocs.arity.com/)
+- [API reference](https://apidocs.arity.com/)
+- [Pricing](https://arity.com/move/pricing-through-personalization-key-takeaways-from-robert-nendorf-2/)
+- [Support](https://arity.com/arity-services-data-support/)
+- [Blog](https://arity.com/articles/)
+- [Privacy policy](https://arity.com/privacy/)
+
+## API Evangelist rating
+
+**Kin Score 41.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 40.6 |
+| Contract governance | 18.2 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 57.1 |
+| Access clarity | 34.2 |
+
+**Agent readiness 23.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 33.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/arity/](https://apis.io/providers/arity/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Arity: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/arity/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
